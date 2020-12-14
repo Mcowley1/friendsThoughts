@@ -10,14 +10,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(require('./routes'));
 
 // database connection 
-express.Mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/friends-thoughts', {
-    useFriendAndModify: false,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/friends-thoughts', {
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 // log mongo queries 
-express.Mongoose.set('debug', true);
+mongoose.set('debug', true);
 
 // port connection
 app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
