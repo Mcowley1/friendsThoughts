@@ -2,7 +2,7 @@ const express = require('express');
 const express = require('mongoose');
 
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,5 +19,6 @@ express.Mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/friends
 // log mongo queries 
 express.Mongoose.set('debug', true);
 
+// port connection
 app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
 
